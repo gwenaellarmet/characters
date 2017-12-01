@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CharacterComponent from './CharacterComponent.jsx';
+import CharacterListComponent from './CharacterListComponent.jsx';
 
 export default class App extends React.Component {
 
@@ -9,12 +9,7 @@ export default class App extends React.Component {
 					<div className="website-header">
 						<h1>Characters</h1>
 					</div>
-					<ul className="character-list-container">
-						<CharacterComponent />
-						<CharacterComponent />
-						<CharacterComponent />
-						<CharacterComponent />
-					</ul>
+					<CharacterListComponent />
 				</div>
 	}
 }

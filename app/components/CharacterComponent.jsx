@@ -2,13 +2,13 @@ import React from 'react';
 
 export default class CharacterComponent extends React.Component {
 
-
-
 	render () {
-        let character = {
-            name: 'Alain Térieur',
-            birthDate: '01/01/1990',
-            type: 'human'
+
+        if(this.props.character === undefined) {
+            throw Error('You need to provide a character to CharacterComponent');
+        } else {
+            var character = this.props.character;
+            console.log(character)
         }
 
         return (
@@ -16,7 +16,7 @@ export default class CharacterComponent extends React.Component {
                 <div className="character-card">
                     <div className="character-image character-image-placeholder"></div>
                     <div className="character-card-content">
-                        <div className="character-name">Alain Térieur   </div>
+                        <div className="character-name"> {character} </div>
                         <p className="character-infos">Birth Date : 01/01/1980 - type : human</p>
                         <ul className="character-skills">
                             <li><span className="skill">Intelligent</span></li>
