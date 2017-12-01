@@ -1,11 +1,41 @@
 @import "./reset.scss";
 
+@import "./characterCard.scss";
+
 :global {
 
 	body {
+		background-color: #FFF5CF
+
 		strong {
 			font-weight: bold;
 		}
+	}
+
+	.website-header {
+		background-color: #292929;
+		color: #f0f0f0;		
+		width: 100%;
+		min-height: 75px;
+		box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+		margin-bottom: 35px;
+		
+		h1 {
+			text-align: center;
+			font-size: 2rem;
+			font-family: 'Pacifico', cursive;
+			padding: 2% 0;
+		}
+	}
+
+	.character-list-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		list-style: none;
+		width: 100%;
+		margin: 0;
+		padding: 0;
 	}
 }
 

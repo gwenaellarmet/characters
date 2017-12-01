@@ -2,12 +2,15 @@
 
 ## Road Map
 
- - Define Character Class with all possible attributes and skills
- - Define validation of attribute and skills
- - Create List page of all existing characters
- - Add filter on list page (by type, by skill, by birthdate)
- - Create Edition page (using validation of form)
- - Work on style of the website
+    ### Character List
+        - CharacterComponent design
+        - CharacterListComponent design
+        - Use dynamic datas
+    
+    ### Character Edit / new
+        - Add routing
+        - Page design
+        - CharacterFormComponent design
 
 # Test: créer, modifier et supprimer une liste de personnage.
 
