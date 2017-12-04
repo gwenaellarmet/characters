@@ -4,25 +4,29 @@ export default class CharacterComponent extends React.Component {
 
 	render () {
 
-        if(this.props.character === undefined) {
-            throw Error('You need to provide a character to CharacterComponent');
-        } else {
-            var character = this.props.character;
-            console.log(character)
+        if(this.props.characterName === undefined) {
+            throw Error('You need to provide a characterName to CharacterComponent');
+        } else if(this.props.characterBirthDate === undefined) {
+            throw Error('You need to provide a characterBirthDate to CharacterComponent');
+        } else if(this.props.characterType === undefined) {
+            throw Error('You need to provide a characterType to CharacterComponent');
+        } else if(this.props.characterSkills === undefined) { // Could be optional ?
+            throw Error('You need to provide characterSkills to CharacterComponent');
         }
+
+        var SkillsList = this.props.characterSkills.map(function(skill){
+            return <li><span className="skill">{skill}</span></li>;
+        });
 
         return (
             <li className="character-item">
                 <div className="character-card">
                     <div className="character-image character-image-placeholder"></div>
                     <div className="character-card-content">
-                        <div className="character-name"> {character} </div>
-                        <p className="character-infos">Birth Date : 01/01/1980 - type : human</p>
+                        <div className="character-name"> {this.props.characterName} </div>
+                        <p className="character-infos">Birth Date : {this.props.characterBirthDate} - type : {this.props.characterType}</p>
                         <ul className="character-skills">
-                            <li><span className="skill">Intelligent</span></li>
-                            <li><span className="skill">Funny</span></li>
-                            <li><span className="skill">Tall</span></li>
-                            <li><span className="skill">Ugly</span></li>
+                            {SkillsList}
                         </ul>
                         <div className="buttons-container">
                             <button className="btn btn-edit">Edit</button>
@@ -32,26 +36,5 @@ export default class CharacterComponent extends React.Component {
                 </div>
             </li>           
         )
-        
-        
-        // <div className='character-container'>
-        //     <div className='character-infos'>
-        //         <img className='character-pic' src="https://placeimg.com/75/75/tech"/>
-        //     </div>
-        //     <div className='character-attributes'>
-
-        //     </div>
-        // </div>
-
-        // <div className="CharacterComponent">
-        //             <div className="CharacterPic">
-        //                 <i className="fa fa-user" aria-hidden="true"></i>
-        //             </div>
-		// 			<p> {character.name} </p>
-        //             <p> {character.birthDate}</p>
-        //             <div className="CharacterType">
-        //                 <i className={'fa ' + iconType } aria-hidden="true"></i>
-        //             </div>
-		// 		</div>
 	}
 }
