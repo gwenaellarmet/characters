@@ -1,10 +1,26 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default class CharacterComponent extends React.Component {
+import { removeCharacter } from '../actions/CharactersActions.jsx';
+
+export class CharacterComponent extends React.Component {
+
+    constructor() {
+        super();
+        this.deleteCharacter = this.deleteCharacter.bind(this);
+    }
+
+    deleteCharacter = () => {
+        this.props.dispatch(removeCharacter(this.props.characterKey));
+    };
+
 
 	render () {
 
-        if(this.props.characterName === undefined) {
+        
+        if(this.props.characterKey === undefined) {
+            throw Error('You need to provide a characterKey to CharacterComponent');
+        } else if(this.props.characterName === undefined) {
             throw Error('You need to provide a characterName to CharacterComponent');
         } else if(this.props.characterBirthDate === undefined) {
             throw Error('You need to provide a characterBirthDate to CharacterComponent');
@@ -14,8 +30,10 @@ export default class CharacterComponent extends React.Component {
             throw Error('You need to provide characterSkills to CharacterComponent');
         }
 
-        var SkillsList = this.props.characterSkills.map(function(skill){
-            return <li><span className="skill">{skill}</span></li>;
+
+        var i =0; // React wants a key when iterating element
+        var SkillsList = this.props.characterSkills.map((skill) => {
+            return <li key={i++}><span className="skill">{skill}</span></li>;
         });
 
         return (
@@ -30,7 +48,7 @@ export default class CharacterComponent extends React.Component {
                         </ul>
                         <div className="buttons-container">
                             <button className="btn btn-edit">Edit</button>
-                            <button className="btn btn-delete">Delete</button>
+                            <button className="btn btn-delete" onClick={this.deleteCharacter} >Delete</button>
                         </div>
                     </div>
                 </div>
@@ -38,3 +56,10 @@ export default class CharacterComponent extends React.Component {
         )
 	}
 }
+
+function mapStateToProps(state) {
+    return {
+    };
+  }
+  
+export default connect(mapStateToProps)(CharacterComponent);

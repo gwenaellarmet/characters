@@ -2,37 +2,32 @@ import React from 'react';
 
 import CharacterComponent from './CharacterComponent.jsx';
 
-export default class CharacterListComponent extends React.Component {
+import { connect } from 'react-redux';
+import { addCharacter } from '../actions/CharactersActions.jsx';
+
+export class CharacterListComponent extends React.Component {
 
     constructor() {
-        super()
-        this.state = {  
-            characters : [{
-                key: 0,
-                name: 'Alain Térieur',
-                birthDate: '01/01/1990',
-                type: 'human',
-                skills : ["intelligent", "tall", "quick"]
-            }, {
-                key: 1,            
-                name: 'Alex Térieur',
-                birthDate: '01/01/1980',
-                type: 'plant',
-                skills : ["green", "tall", "slow"]
-            }, {
-                key: 2,            
-                name: 'Sarah Courci',
-                birthDate: '01/01/1990',
-                type: 'animal',
-                skills : ["soft", "tall", "quick"]
-            }]
-        }
+        super();
+        this.createNewCharacter = this.createNewCharacter.bind(this);
+    }
+
+
+    createNewCharacter = () => { // Will be moved to the edit page; this function should only link to an empty edit page
+        this.props.dispatch(addCharacter({
+            key: Date.now(),
+            name: 'Alain Térieur',
+            birthDate: '01/01/1990',
+            type: 'human',
+            skills : ["intelligent", "tall", "quick"]
+        }));
     }
 
 	render () {
-        var CharacterList = this.state.characters.map(function(character){
+        var CharacterList = this.props.characters.map((character) => {
             return <CharacterComponent 
-                        key={character.key} 
+                        key={character.key}
+                        characterKey={character.key}
                         characterName={character.name}
                         characterBirthDate={character.birthDate}
                         characterType={character.type}
@@ -42,9 +37,20 @@ export default class CharacterListComponent extends React.Component {
 
 
         return (
-            <ul className="character-list-container">
-                {CharacterList}
-            </ul>           
-        )
+            <div>
+                <button className="btn btn-add" onClick={this.createNewCharacter}>Add new Character</button>                
+                <ul className="character-list-container">
+                    {CharacterList}
+                </ul>
+            </div>
+            )
 	}
 }
+
+function mapStateToProps(state) {
+    return {
+        characters: state.characters
+    };
+  }
+  
+export default connect(mapStateToProps)(CharacterListComponent);

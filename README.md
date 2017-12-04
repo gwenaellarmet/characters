@@ -3,8 +3,6 @@
 ## Road Map
 
     ### Character List
-        - CharacterComponent design
-        - CharacterListComponent design
         - Use dynamic datas
     
     ### Character Edit / new
