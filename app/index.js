@@ -5,7 +5,9 @@ import { Provider } from 'react-redux';
 import { Route, Router, IndexRoute, hashHistory } from 'react-router'
 
 import store from './store.jsx';
+
 import './styles/main.scss';
+
 
 import CharacterListComponent from './components/CharacterListComponent.jsx';
 import CharacterEditComponent from './components/CharacterEditComponent.jsx';

@@ -25,7 +25,7 @@ export class CharacterComponent extends React.Component {
             throw Error('You need to provide a characterBirthDate to CharacterComponent');
         } else if(this.props.characterType === undefined) {
             throw Error('You need to provide a characterType to CharacterComponent');
-        } else if(this.props.characterSkills === undefined) { // Could be optional ?
+        } else if(this.props.characterSkills === undefined) {
             throw Error('You need to provide characterSkills to CharacterComponent');
         }
 
@@ -41,7 +41,7 @@ export class CharacterComponent extends React.Component {
                     <div className="character-image character-image-placeholder"></div>
                     <div className="character-card-content">
                         <div className="character-name"> {this.props.characterName} </div>
-                        <p className="character-infos">Birth Date : {this.props.characterBirthDate} - type : {this.props.characterType}</p>
+                        <p className="character-infos">Birth Date : {this.props.characterBirthDate} <br/> type : {this.props.characterType}</p>
                         <ul className="character-skills">
                             {SkillsList}
                         </ul>
@@ -57,8 +57,7 @@ export class CharacterComponent extends React.Component {
 }
 
 function mapStateToProps(state) {
-    return {
-    };
-  }
+    return {};
+}
   
 export default connect(mapStateToProps)(CharacterComponent);

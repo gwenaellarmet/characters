@@ -2,9 +2,7 @@
 
 ## Road Map
     ### Character Edit / new
-        - Add routing
         - Page design
-        - CharacterFormComponent design and implementation
 
 # Test: créer, modifier et supprimer une liste de personnage.
 
