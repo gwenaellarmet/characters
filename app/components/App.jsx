@@ -1,16 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-import CharacterListComponent from './CharacterListComponent.jsx';
+import { Link } from 'react-router';
 
 export default class App extends React.Component {
 
 	render () {
 		return  <div className="AppContainer">
 					<div className="website-header">
-						<h1>Characters</h1>
+						<Link className="header-link" to="/"><h1>Characters</h1></Link>
 					</div>
-					<CharacterListComponent />
+					{this.props.children}
 				</div>
 	}
 }

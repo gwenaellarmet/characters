@@ -85,7 +85,9 @@
 
     .btn-edit {
         border: 1px solid #cccccc;
-		color: #696969;
+        color: #696969;
+        text-decoration: none;
+        text-align: center;
     }
 
     .btn-delete {
@@ -99,7 +101,9 @@
         margin: 0.1rem auto 1rem auto;
         border: 1px solid #cccccc;
         color: #696969;
-        font-weight: bolder;
+        font-weight: bold;
+        text-decoration: none;
+        text-align: center;
     }
 
     .character-skills {

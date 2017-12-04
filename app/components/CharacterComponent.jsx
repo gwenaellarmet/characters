@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 import { removeCharacter } from '../actions/CharactersActions.jsx';
 
@@ -16,8 +17,6 @@ export class CharacterComponent extends React.Component {
 
 
 	render () {
-
-        
         if(this.props.characterKey === undefined) {
             throw Error('You need to provide a characterKey to CharacterComponent');
         } else if(this.props.characterName === undefined) {
@@ -47,7 +46,7 @@ export class CharacterComponent extends React.Component {
                             {SkillsList}
                         </ul>
                         <div className="buttons-container">
-                            <button className="btn btn-edit">Edit</button>
+                            <Link className="btn btn-edit" to={"edit/" + this.props.characterKey}>Edit</Link>
                             <button className="btn btn-delete" onClick={this.deleteCharacter} >Delete</button>
                         </div>
                     </div>

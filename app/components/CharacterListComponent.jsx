@@ -5,6 +5,8 @@ import CharacterComponent from './CharacterComponent.jsx';
 import { connect } from 'react-redux';
 import { addCharacter } from '../actions/CharactersActions.jsx';
 
+import { Link } from 'react-router';
+
 export class CharacterListComponent extends React.Component {
 
     constructor() {
@@ -38,7 +40,7 @@ export class CharacterListComponent extends React.Component {
 
         return (
             <div>
-                <button className="btn btn-add" onClick={this.createNewCharacter}>Add new Character</button>                
+                <Link className="btn btn-add" to="edit">Add new Character</Link>
                 <ul className="character-list-container">
                     {CharacterList}
                 </ul>

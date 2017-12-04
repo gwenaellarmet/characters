@@ -20,6 +20,14 @@
 		box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
 		margin-bottom: 35px;
 		
+		.header-link {
+			text-decoration: none;
+	
+			&:visited {
+				color: #f0f0f0;	
+			}
+		}
+
 		h1 {
 			text-align: center;
 			font-size: 2rem;
@@ -37,5 +45,6 @@
 		margin: 0;
 		padding: 0;
 	}
+
 }
 
