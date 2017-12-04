@@ -1,9 +1,5 @@
 # Characters
 
-## Road Map
-    ### Character Edit / new
-        - Page design
-
 # Test: créer, modifier et supprimer une liste de personnage.
 
 Temps estimé: 3h
@@ -20,7 +16,6 @@ Un personnage contient les propriétés suivantes:
 Il faut une page permettant de lister ces personnages, et une page permettant de les editer / supprimer.
 
 Nous devons pouvoir accéder à l'édition d'un personnage via la liste, mais également via un lien http direct.
-
 
 ## Infos techniques:
 

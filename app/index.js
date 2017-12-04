@@ -8,7 +8,6 @@ import store from './store.jsx';
 
 import './styles/main.scss';
 
-
 import CharacterListComponent from './components/CharacterListComponent.jsx';
 import CharacterEditComponent from './components/CharacterEditComponent.jsx';
 

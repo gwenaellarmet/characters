@@ -87,24 +87,24 @@ export class CharacterEditComponent extends React.Component {
         console.log(submitText);
         return (
             <form onSubmit={this.handleSubmit} className="character-form">
-                <label>
-                    Name* :
+                <div className="input-container">
+                    <label>Name* :</label>
                     <input required
                     name="name"
                     value={this.state.name}
                     onChange={this.handleInputChange} />
-                </label>
-                <label>
-                    Birthdate* :
+                </div>
+                <div className="input-container">
+                    <label>Birthdate* :</label>
                     <input required
                     name="birthDate"
                     pattern="^[0-9]{2}[/]{1}[0-9]{2}[/]{1}[0-9]{4}$"
                     placeholder="DD/MM/YYYY"
                     value={this.state.birthDate}
                     onChange={this.handleInputChange} />
-                </label>
-                <label>
-                    Type* :
+                </div>
+                <div className="input-container">
+                    <label>Type* :</label>
                     <select required
                     name="type"
                     value={this.state.type}
@@ -113,16 +113,17 @@ export class CharacterEditComponent extends React.Component {
                         <option value="plant">Plant</option> 
                         <option value="animal">Animal</option>
                     </select>
-                </label>
-                <label>
-                    Skills :
+                </div>
+                <div className="input-container">
+                    <label>Skills :</label>
                     <Tags
-                    tags={this.state.skills}
-                    placeholder="Add a skill"
-                    onAdded={this.onSkillAdded.bind(this)}
-                    onRemoved={this.onSkillRemoved.bind(this)} />
-                </label>
-                <button type="Submit">{submitText}</button>
+                        tags={this.state.skills}
+                        placeholder="Add a skill"
+                        onAdded={this.onSkillAdded.bind(this)}
+                        onRemoved={this.onSkillRemoved.bind(this)} />
+                    
+                </div>
+                <button className="btn btn-submit" type="Submit">{submitText}</button>
             </form>
             
             )
